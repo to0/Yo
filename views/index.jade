@@ -1,16 +1,13 @@
 extends layout
 
-block css
-  link(href="/css/home.css" rel="stylesheet")
-
-block js
-  script(src="/js/home.js")
-
 block content
   div.spacer
   div(class="block intro" height="700px" data-stellar-ratio="0.3")
-    h1.logo: img(src="img/logo.png" alt="logo") Yo 帮手
-    h1.slogan: img(src="img/slogan.png" alt="slogan")
+    h1.logo
+      img(src="/img/logo.png" alt="logo")
+      span Yo帮手
+
+    h1.slogan: img(src="/img/slogan.png" alt="slogan")
     div.download-link
       a(class="btn btn-default download" id="ios" href="#") IOS
       a(class="btn btn-default download" id="android" href="#") Android
@@ -19,18 +16,21 @@ block content
   div.block.features(id="features")
     div.container
 
-      //- h3 Yo帮手＝免费外教＋广告奖励＋商品兑换
-      //- h3 这是一个神奇的APP
-      //- div.spacing
       h4 免费外教：想学什么外语，就找什么外教。随时随地只需描述需求，剩下的Yo帮手帮你搞定。还可以和你的私人外教，语言学习小伙伴加好友，分享彼此进步
       h4 广告奖励：观看精选商家宣传介绍，每分钟都有金币奖励
-      h4 商品兑换：Yo帮手定制商品，天猫热卖，应有尽有，免费学习还有东西送！
+      h4 商品兑换：Yo帮手定制商品，天猫热卖，应有尽有，免费学习还有东西送!
 
   div.block.bottom-line
     div.container
-      h1: img(src="img/bottom-line.png" alt="Yo帮手＝免费外教＋广告奖励＋商品兑换")
+      h1: img(src="/img/bottom-line.png" alt="Yo帮手＝免费外教＋广告奖励＋商品兑换")
 
 
   div.block.copyright
     div.container
       p Copyright 2014 Yozaii Technology Co. Ltd.
+
+block css
+  link(href="/css/home.css" rel="stylesheet")
+
+block js
+  script(src="/js/home.js")

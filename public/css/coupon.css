@@ -1,0 +1,32 @@
+body {
+  background-image:url("../img/bg.jpg");
+  background-size: cover;
+  background-repeat:no-repeat;
+  background-position: 50% 10%;
+  font-family:'Helvetica Neue', Helvetica, Arial, Verdana, sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+.register {
+  width: 300px;
+  position: absolute;
+  right: 50px;
+  top: 150px;
+  border-top:1px;
+  background-color: rgba(240,242,244,0.35);
+  padding: 50px 10px;
+  border-radius: 6px;
+}
+
+.input-group {
+  margin-top: 10px;
+}
+.register .input-group-addon{
+  background:#fff;
+}
+.register .input-group-addon .fa-unlock-alt{
+  width:19px;
+}
+button {
+  margin-top:50px;
+}

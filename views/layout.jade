@@ -2,6 +2,21 @@ doctype html
 html
   head
     title= title
-    link(rel='stylesheet', href='/stylesheets/style.css')
+    //- link(rel='stylesheet', href='/css/style.css')
+    //- title Yo帮手
+    link(href="css/bootstrap.min.css" rel="stylesheet")
+    link(href="/css/font-awesome.min.css" rel="stylesheet")
+
+    block css
+
+    //- script(src="/js/ga.js")
+
   body
+    p kjhhgg
     block content
+
+    script(src="/js/jquery-1.11.0.min.js")
+    script(src="/js/bootstrap.min.js")
+    script(src="/js/jquery.stellar.min.js")
+
+    block js

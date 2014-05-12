@@ -148,19 +148,38 @@ body {
 .download {
 	display: block;
 	margin: 40px auto;
-	background-image: url("/img/android.png");
-	padding: 15px ;
-	padding-left: 80px;
-	width: 169px;
+	/*background-color: #111;*/
+	/*background-image: url("/img/android.png");*/
+	padding: 10px 12px;
+	/*padding-left: 12px;*/
+	width: 230px;
 	height:57px;
 	background-size: cover;
 	border:none;
 	color: #fff;
 	font-size: 20px;
+	text-align: left;
+	line-height: 2;
+}
+.download img {
+	max-height: 100%;
+	margin-top: -5px;
+}
+.download span {
+	padding: 10px;
+	padding-left: 10px;
+	margin: 0 auto;
 }
 #ios {
-	background-image:url("/img/ios.png");
+	background-color:#74bee1;
+}
+#android {
+	background-color:#95d074;
+}
+#ios span{
+	/*background-image:url("/img/ios.png");*/
 	/*font-weight: bold;*/
+	padding-left: 20px;
 }
 #ios:hover {
 	color: rgba(0, 138, 208, 0.9);

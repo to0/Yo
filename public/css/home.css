@@ -186,6 +186,15 @@ body {
 .bottom-line > .container {
 	max-width:500px;
 }
+@media (max-width:768px){
+	.bottom-line > .container {
+		width: 75%;
+	}
+	.bottom-line h1 {
+		font-size: 30px;
+		margin-top: 30px;
+	}
+}
 .copyright {
 	background-color: #348fd4;
 	padding: 20px;
@@ -273,6 +282,7 @@ body {
 	.block .logo img {
 		width: 140px;
 	}
+
 }
 .spacing {
 	padding: 20px;

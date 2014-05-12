@@ -1,15 +1,15 @@
 body {
 
-	font-family: 'Helvetica Neue', Helvetica, Arial, Verdana, sans-serif;
+	font-family: 'Helvetica Neue', Helvetica,'黑体', Arial, Verdana, sans-serif;
 	-webkit-font-smoothing: antialiased;
 }
 
-.spacer{
+/*.spacer{
 	display:block;
 	z-index:-1;
 	height:700px;
 	position:relative;
-}
+}*/
 .block {
 	background-color: #FFFFFF;
 	position: relative;
@@ -49,8 +49,26 @@ body {
 
 		padding: 20px;
 	}
+
+.preview{
+	position: absolute;
+	right: 4%;
+	top: 10%;
+	width: 320px;
+}
+.preview img {
+	max-width: 100%;
+}
+@media (max-width:768px){
+	.preview img {
+		display:none;
+	}
+}
 /*}*/
 @media (max-width:768px){
+	/*.preview img {
+		display:none;
+	}*/
 	.intro {
 		background-image:url("/img/home-bg-mobile.png");
 		/*z-index: 2;*/
@@ -62,17 +80,48 @@ body {
 	background-size: cover;
 }
 .features h2, .features h3 { color: #333; }
-.features h4 { color: #666; }
+.features h4 {
+	color: #666;
+	font-size:20px;
+	text-align:center;
+}
 .features > .container {
 	/*max-width:700px;*/
 }
+.features .col-md-4{
+	padding-left: 32px;
+	padding-right:32px;
+}
 .feature {
 	background-color: rgba(234, 232, 225, 0.88);
-	height: 300px;
-	padding: 60px 20px;
+	height: 250px;
+	padding: 60px 30px;
 	border-radius: 4px;
+	margin: 20px 0;
+	-webkit-box-shadow: rgba(197, 191, 191, 0.8) 0px 1px 10px;
+	-moz-box-shadow: rgba(197, 191, 191, 0.8) 0px 1px 10px;
+	box-shadow: rgba(197, 191, 191, 0.8) 0px 1px 10px;
 }
-
+.tip {
+	width: 180px;
+	height: 50px;
+	background-color: #3dafe1;
+	/*-webkit-box-shadow: rgba(51,155,217,0.5) 0px 1px 10px;
+	-moz-box-shadow: rgba(51,155,217,0.5) 0px 1px 10px;
+	box-shadow: rgba(51,155,217,0.5) 0px 1px 10px;*/
+	border-bottom: 2px solid #339bd9;
+	text-align:center;
+	border-radius: 5px;
+	/*margin: 20px auto;
+	margin-bottom: -20px;*/
+	position: absolute;
+	bottom: -10px;
+	left: 70px;
+	color: #fff;
+	font-weight:bold;
+	font-size:28px;
+	padding: 3px;
+}
 .bottom-line { background-color: #F2F2F2; }
 .bottom-line img {
 	max-width:100%;
@@ -110,12 +159,19 @@ body {
 	font-size: 20px;
 }
 #ios {
-	background-image:url("/img/ios.png")
+	background-image:url("/img/ios.png");
+	/*font-weight: bold;*/
+}
+#ios:hover {
+	color: rgba(0, 138, 208, 0.9);
+}
+#android:hover {
+	color: rgba(59, 179, 83, 0.93);
 }
 @media (min-width: 768px) {
 	.block .logo{
 		text-align: left;
-		padding-left: 10%;
+		padding-left: 3%;
 		color: #fff;
 	}
 
@@ -132,10 +188,15 @@ body {
 		text-align:left;
 		color: #fff;
 		padding-left: 10%;
+		/*margin-right:50px;*/
 	}
 	.download {
 		display: inline-block;
-		margin: 100px 40px;
+		margin: 50px 0px;
+		margin-right:50px;
+		margin-top: 150px;
+		/*position: absolute;
+		bottom: 20%;*/
 	}
 
 }
@@ -144,17 +205,17 @@ body {
 }
 .scroll-down {
 	position: absolute;
-	bottom: 10%;
+	bottom: 4%;
 	left: 48%;
 	text-align: center;
 	height: 60px;
 	width: 60px;
 	font-size: 50px;
 	display: block;
-	color: #cecece;
+	color: #E4E4E4;
 }
 .scroll-down:hover{
-	color: #cd435b;
+	color: #ffffff;
 }
 .navbar-default .navbar-nav > li > a, .navbar-brand{
 	color: #5e5e5e;

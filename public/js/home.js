@@ -16,7 +16,7 @@ $(document).ready(function($){
 			);
 
 		});
-		$('.intro').css('z-index','1');
+		// $('.intro').css('z-index','1');
 	}
 
 	$(".spacer").css("height",$(window).height()+'px');
@@ -27,7 +27,7 @@ $(document).ready(function($){
 		}
 		else {
 			if($('.spacer').length==0){
-				$('body').prepend('<div class="spacer"></div>');
+				// $('body').prepend('<div class="spacer"></div>');
 			}
 		}
 		$(".spacer").css("height",$(window).height()+'px');

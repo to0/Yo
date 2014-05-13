@@ -6,10 +6,10 @@ var path = require('path');
 router.get('/', function(req, res) {
   res.render('index');
 });
-router.get('/ios-dev',function(req, res) {
-  res.render('ios-dev');
+router.get('/beta/ios',function(req, res) {
+  res.render('ios-beta');
 })
-router.get('/download-android', function(req, res) {
-	res.download(path.resolve(__dirname,'../tmp/yohelper.apk'));
+router.get('/beta/android', function(req, res) {
+	res.download(path.resolve(__dirname,'../app-beta/yohelper.apk'));
 });
 module.exports = router;

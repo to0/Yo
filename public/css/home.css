@@ -161,6 +161,7 @@ body {
 		margin-bottom: -50px;
 		font-size: 20px;
 		width: 88%;
+		line-height: 2;
 	}
 }
 @media (max-width: 1024px){
@@ -236,6 +237,9 @@ body {
 }
 #android {
 	background-color:#95d074;
+}
+#android span {
+	padding-left: 30px;
 }
 #ios span{
 	/*background-image:url("/img/ios.png");*/

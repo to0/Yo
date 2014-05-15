@@ -33,7 +33,10 @@ $(document).ready(function($){
 		$(".spacer").css("height",$(window).height()+'px');
 		$(".intro").attr("height",$(window).height()+'px');
 	});
+	$('#android').click(function(){
+  	ga('send', 'event', 'button', 'click', 'Android Download ');
 
+	});
 
 
 });

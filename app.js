@@ -23,6 +23,12 @@ app.use(bodyParser.urlencoded());
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
+app.use(function(req, res, next) {
+  if(!req.secure){
+    res.redirect('https://'+req.host+':'+(process.env.HTTPSPORT || 8443)+req.originalUrl);
+  }
+  next();
+});
 app.use('/', routes);
 app.use('/beta',beta);
 app.use('/users', users);

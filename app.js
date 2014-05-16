@@ -24,9 +24,18 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use(function(req, res, next) {
-  if(!req.secure){
-    res.redirect('https://'+req.host+':'+(process.env.HTTPSPORT || 8443)+req.originalUrl);
+  var host;
+  if(req.subdomains[req.subdomains.length-1]!='www' && req.host!='localhost'){
+    host = 'www.' + req.host;
+    res.redirect('https://'+host+':'+(process.env.HTTPSPORT || 8443)+req.originalUrl);
   }
+  else{
+    host = req.host;
+    if(!req.secure){
+      res.redirect('https://'+host+':'+(process.env.HTTPSPORT || 8443)+req.originalUrl);
+    }
+  }
+
   next();
 });
 app.use('/', routes);

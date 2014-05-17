@@ -31,9 +31,10 @@ app.use(function(req, res, next) {
   }
   else{
     host = req.host;
-    if(!req.secure){
-      res.redirect('https://'+host+':'+(process.env.HTTPSPORT || 8443)+req.originalUrl);
-    }
+    // cancel force https temporarily, certificate compatible issue
+    // if(!req.secure){
+    //   res.redirect('https://'+host+':'+(process.env.HTTPSPORT || 8443)+req.originalUrl);
+    // }
   }
 
   next();

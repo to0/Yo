@@ -224,7 +224,7 @@ body {
 	line-height: 2;
 }
 .download img {
-	max-height: 100%;
+	max-height: 130%;
 	margin-top: -5px;
 }
 .download span {
@@ -239,14 +239,14 @@ body {
 	background-color:#95d074;
 }
 #android span {
-	padding-left: 50px;
+	padding-left: 20px;
 	padding-right: 50px;
 
 }
 #ios span{
 	/*background-image:url("/img/ios.png");*/
 	/*font-weight: bold;*/
-	padding-left: 60px;
+	padding-left: 35px;
 }
 #ios:hover {
 	color: rgba(0, 138, 208, 0.9);

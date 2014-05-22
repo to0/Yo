@@ -1,6 +1,7 @@
 $(document).ready(function(){
   $('#getInvolved').submit(function(e){
     e.preventDefault();
+    var host = 'http://115.29.166.167/api';
     var btn = $('#submit');
     var authData = {
       username: $('input[name="id"]').val(),
@@ -14,16 +15,16 @@ $(document).ready(function(){
 
     btn.text('努力提交中。。');
     $.ajax({
-			url: '/auth.action',
+			url: host + '/auth.action',
 			type: 'POST',
 			data: authData,
 		})
 		.done(function(data) {
 			console.log("success");
-			if(data.errno===true){
+			if(data.errno===0){
 				rewardData.token = data.result;
 			  $.ajax({
-          url: '/SetReward.action',
+          url: host + '/SetReward.action',
           type: 'POST',
           data: rewardData,
         })

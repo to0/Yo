@@ -1,5 +1,5 @@
 var host = 'http://115.29.166.167/api';
-
+var clock;
 $(document).ready(function(){
   var tbody = $('#ranking-list').children('tbody');
   var currentDate = new Date();

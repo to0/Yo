@@ -8,7 +8,7 @@ body {
   text-align: center;
 }
 
-.register {
+.campaign {
   max-width: 640px;
 
   /*position: absolute;*/
@@ -24,12 +24,15 @@ body {
   margin-top: 10px;
   width: 100%;
 }*/
-.register .input-group-addon{
+.campaign .input-group-addon{
   background:#fff;
 }
-.register .input-group-addon .fa-unlock-alt{
+.campaign .input-group-addon .fa-unlock-alt{
   width:19px;
 }
-button {
-  margin-top:50px;
+#submit {
+  margin-top:30px;
+}
+#ranking-list th{
+  text-align: center;
 }

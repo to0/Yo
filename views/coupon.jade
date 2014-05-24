@@ -12,11 +12,12 @@ html(lang="zh-CN")
 
 		link(href="../css/bootstrap.min.css" rel="stylesheet")
 		link(href="../css/font-awesome.min.css" rel="stylesheet")
-
-		link(rel="stylesheet" href="../css/coupon.css" type="text/css")
+		link(href="../css/flipclock.css" rel="stylesheet")
+		link(href="../css/coupon.css" rel="stylesheet")
 
 	body
-		.register.center-block
+		.campaign.center-block
+			.counter
 			form.form-signin(role='form' action='http://192.168.2.6:3000/signin' method='POST' id='getInvolved')
 				.form-group
 					//- span.input-group-addon
@@ -25,13 +26,27 @@ html(lang="zh-CN")
 				.form-group
 					//- span.input-group-addon
 					//- 	i.fa.fa-unlock-alt.fa-lg
-					input.form-control.input-lg(name='password' type='password' placeholder='Password' required='')
+					input.form-control.input-lg(name='password' type='password' placeholder='密码' required='')
 				.form-group
 					input.form-control.input-lg(name='name' type='text' placeholder='真实姓名' required='')
 				.form-group
 					input.form-control.input-lg(name='phone' type='text' placeholder='手机号' required='')
+				.alert.alert-warning.alert-dismissable.hidden#submission-message
+					button.close(type="button" data-dismiss="alert" aria-hidden="true") &times;
+					strong Warning!
 				button.btn.btn-lg.btn-primary.btn-block(type='submit' id='submit') 参与抽奖
+			table.table.table-hover#ranking-list
+				thead
+					tr
+						th Yo ID
+						th 真实姓名
+						th 任务数
+						th 有效建议数
+				tbody
+
+
 
 		script(src='../js/jquery-1.11.0.min.js')
 		script(src='../js/bootstrap.min.js')
-		script(src='../js/get-involved.js')
+		script(src='../js/flipclock.min.js')
+		script(src='../js/campaign.js')

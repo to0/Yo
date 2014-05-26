@@ -5,9 +5,28 @@ var now_in_page;
 var common_token = "491:996aae52d4b60b4d278d2e9246a0c941";
 $(document).ready(function(){
   var tbody = $('#ranking-list').children('tbody');
+  //alert(document.body.clientWidth)
+  var width=document.body.clientWidth;
+  if(width < 320){
+	$(".flip-clock-wrapper ul ").css("margin","1% 0 1% 0");
+	
+	}else if(width <340 ){
+		
+	}else if(width <380 ){
+		$(".counter").css("padding-left","3%");
+	}else if(width <400){
+		$(".counter").css("padding-left","6%");
+	}
+	else  if(width <440){
+		$(".counter").css("padding-left","8%");
+	}else{
+		$(".counter").css("padding-left","10%");
+	}
+	
+	console.log(document.body.clientWidth);
  now_in_page =0;
   var currentDate = new Date();
-
+	
 				// Set some date in the future. In this case, it's always Jan 1
 	var futureDate  = new Date(2014, 7, 30);
 

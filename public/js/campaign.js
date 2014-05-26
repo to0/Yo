@@ -1,7 +1,11 @@
 var host = 'http://115.29.166.167/api';
 var clock;
+var now_in_page;
+//var common_token = "60:705670b5b6199e1d2c216dfb104a22e8";
+var common_token = "491:996aae52d4b60b4d278d2e9246a0c941";
 $(document).ready(function(){
   var tbody = $('#ranking-list').children('tbody');
+ now_in_page =0;
   var currentDate = new Date();
 
 				// Set some date in the future. In this case, it's always Jan 1
@@ -16,6 +20,8 @@ $(document).ready(function(){
 		countdown: true,
 		showSeconds: false
 	});
+	
+	
 
   $('#getInvolved').submit(function(e){
     e.preventDefault();
@@ -51,23 +57,25 @@ $(document).ready(function(){
           console.log("success");
           switch (data.result) {
           case 1:
-            btn.text('提交成功');
-            btn.attr('disabled','disabled');
-            msg.addClass('hidden');
-            $('.step1').addClass('hidden');
-            $('.step2').removeClass('hidden');
+            alert('提交成功');
+           // btn.attr('disabled','disabled');
+           // msg.addClass('hidden');
+            $('.step2').addClass('hidden');
+            $('.step1').removeClass('hidden');
             break;
           case -1:
             msg.removeClass('hidden');
-            msg.children('strong').text('无此用户');
-            btn.attr('disabled','disabled');
-            btn.text('提交失败，请刷新重新提交');
+            msg.children('strong').text('用户名密码错误');
+            //btn.attr('disabled','disabled');
+            //btn.text('提交失败，请刷新重新提交');
+			  btn.text('提交');
             break;
           case -2:
             msg.removeClass('hidden');
-            msg.children('strong').text('已经报名过');
-            btn.attr('disabled','disabled');
-            btn.text('提交失败，请刷新重新提交');
+            msg.children('strong').text('您已经参加过抽奖');
+           // btn.attr('disabled','disabled');
+            //btn.text('提交失败，请刷新重新提交');
+			  btn.text('提交');
             break;
           default:
           }
@@ -75,35 +83,40 @@ $(document).ready(function(){
         .fail(function() {
           console.log("set reward error");
           msg.removeClass('hidden');
-          msg.children('strong').text('提交失败');
-          btn.attr('disabled','disabled');
-          btn.text('提交失败，请刷新重新提交');
+          msg.children('strong').text('用户名密码错误');
+          //btn.attr('disabled','disabled');
+         // btn.text('提交失败，请刷新重新提交');
+		   btn.text('提交');
         });
         getRankingList(tbody, rewardData.token);
 
 			}
       else{//login fail
         msg.removeClass('hidden');
-        msg.children('strong').text('登录失败');
-        btn.attr('disabled','disabled');
-        btn.text('提交失败，请刷新重新提交');
+        msg.children('strong').text('用户名或密码错误');
+        //btn.attr('disabled','disabled');
+        btn.text('提交');
       }
 		})
 		.fail(function() {
 			console.log("auth error");
 			msg.removeClass('hidden');
       msg.children('strong').text('登录失败');
-      btn.attr('disabled','disabled');
-      btn.text('提交失败，请刷新重新提交');
+      //btn.attr('disabled','disabled');
+      //btn.text('提交失败，请刷新重新提交');
+	    btn.text('提交');
 		});
   });
+  getRankingList(tbody);
 });
 
-var getRankingList = function(tbody, token){
+var getRankingList = function(tbody){
+
+	
   $.ajax({
     url: host + '/GetReward.action',
     data: {
-      token: token
+      token: common_token
     },
     type: 'POST'
   })
@@ -112,17 +125,25 @@ var getRankingList = function(tbody, token){
     console.log(data);
     if(data.errno ===0 && data.result!=null){
       var row;
-      tbody.html('');
-      for(var i=0; i<data.result.length; i++){
-        // console.log();
-        row = '';
-        row += '<tr><td>' + data.result[i].username + '</td>';
-        row += '<td>' + data.result[i].realname + '</td>';
-        row += '<td>' + data.result[i].numOfMission + '</td>';
-        row += '<td>' + data.result[i].numOfSuggestion + '</td></tr>';
+      //tbody.html('');
+	  var temp = (now_in_page*7+7 < data.result.length ? now_in_page*7+7 : data.result.length);
+	  console.log(temp);
+	  for(var i=now_in_page*7; i<temp; i++){
+			// console.log();
+			
+			row = '';
+			row += '<tr><td>' + data.result[i].username + '</td>';
+			row += '<td>' + data.result[i].realname_show.substring(0,6) + '</td>';
+			row += '<td>' + data.result[i].numOfMission + '</td>';
+			row += '<td>' + data.result[i].numOfSuggestion + '</td></tr>';
 
-        tbody.append(row);
-      }
+			tbody.append(row);
+	  }
+		now_in_page++;
+		if(now_in_page*7>data.result.length){
+			$(".checkmore").addClass("hidden");
+		}
+		
     }
     else {
 
@@ -132,3 +153,12 @@ var getRankingList = function(tbody, token){
 
   });
 };
+
+function check_more(){
+	var tbody = $('#ranking-list').children('tbody');
+	getRankingList(tbody);
+}
+function change_to_coupon(){
+	 $('.step1').addClass('hidden');
+     $('.step2').removeClass('hidden');
+}

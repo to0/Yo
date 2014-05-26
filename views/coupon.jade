@@ -20,6 +20,21 @@ html(lang="zh-CN")
 			.step1
 				h2.banner 距离Yo帮手2.0发布还有:
 				.counter
+				h4.banner 我们将在Yo帮手2.0正式发布之日，根据任务数＋有效建议数排序确定大奖归属。
+				table.table#ranking-list
+					thead
+						tr
+							th Yo ID
+							th 姓名
+							th 任务数
+							th 有效建议数
+					tbody
+				a(class="checkmore"   onclick="check_more();") 查看更多
+					img(src="/img/down.png" )
+					
+				button.btn.btn-lg.btn-primary.btn-block(onclick='change_to_coupon();' style='margin-bottom:30px; margin-top:40px') 参与抽奖
+				
+			.step2.hidden
 				h2
 				img(src="/img/photo.png")
 				form.form-signin(role='form' action='http://192.168.2.6:3000/signin' method='POST' id='getInvolved')
@@ -38,17 +53,10 @@ html(lang="zh-CN")
 					.alert.alert-warning.alert-dismissable.hidden#submission-message
 						button.close(type="button" data-dismiss="alert" aria-hidden="true") &times;
 						strong Warning!
-					button.btn.btn-lg.btn-primary.btn-block(type='submit' id='submit') 参与抽奖
-			.step2.hidden
-				h2 提交成功。我们将在Yo帮手2.0正式发布之日，根据任务数＋有效建议数排序确定大奖归属。
-				table.table.table-hover#ranking-list
-					thead
-						tr
-							th Yo ID
-							th 真实姓名
-							th 任务数
-							th 有效建议数
-					tbody
+					button.btn.btn-lg.btn-primary.btn-block(type='submit' id='submit') 提交
+				
+			
+				
 
 
 

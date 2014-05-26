@@ -198,7 +198,8 @@
 
 .flip-clock-divider .flip-clock-label {
   position: absolute;
-  top: 9em;
+  top: 5em;
+  font-size:18px;
   right: -60px;
   color: #fff;
   text-shadow: none; }

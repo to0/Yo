@@ -17,36 +17,42 @@ html(lang="zh-CN")
 
 	body
 		.campaign.center-block
-			.counter
-			form.form-signin(role='form' action='http://192.168.2.6:3000/signin' method='POST' id='getInvolved')
-				.form-group
-					//- span.input-group-addon
-					//- 	i.fa.fa-user.fa-lg
-					input.form-control.input-lg(name='id' type='text' placeholder='Yo ID' required='' autofocus='')
-				.form-group
-					//- span.input-group-addon
-					//- 	i.fa.fa-unlock-alt.fa-lg
-					input.form-control.input-lg(name='password' type='password' placeholder='密码' required='')
-				.form-group
-					input.form-control.input-lg(name='name' type='text' placeholder='真实姓名' required='')
-				.form-group
-					input.form-control.input-lg(name='phone' type='text' placeholder='手机号' required='')
-				.alert.alert-warning.alert-dismissable.hidden#submission-message
-					button.close(type="button" data-dismiss="alert" aria-hidden="true") &times;
-					strong Warning!
-				button.btn.btn-lg.btn-primary.btn-block(type='submit' id='submit') 参与抽奖
-			table.table.table-hover#ranking-list
-				thead
-					tr
-						th Yo ID
-						th 真实姓名
-						th 任务数
-						th 有效建议数
-				tbody
+			.step1
+				h2.banner 距离Yo帮手2.0发布还有:
+				.counter
+				h2
+				img(src="/img/photo.png")
+				form.form-signin(role='form' action='http://192.168.2.6:3000/signin' method='POST' id='getInvolved')
+					.form-group
+						//- span.input-group-addon
+						//- 	i.fa.fa-user.fa-lg
+						input.form-control.input-lg(name='id' type='text' placeholder='Yo ID' required='' autofocus='')
+					.form-group
+						//- span.input-group-addon
+						//- 	i.fa.fa-unlock-alt.fa-lg
+						input.form-control.input-lg(name='password' type='password' placeholder='密码' required='')
+					.form-group
+						input.form-control.input-lg(name='name' type='text' placeholder='真实姓名' required='')
+					.form-group
+						input.form-control.input-lg(name='phone' type='text' placeholder='手机号' required='')
+					.alert.alert-warning.alert-dismissable.hidden#submission-message
+						button.close(type="button" data-dismiss="alert" aria-hidden="true") &times;
+						strong Warning!
+					button.btn.btn-lg.btn-primary.btn-block(type='submit' id='submit') 参与抽奖
+			.step2.hidden
+				h2 提交成功。我们将在Yo帮手2.0正式发布之日，根据任务数＋有效建议数排序确定大奖归属。
+				table.table.table-hover#ranking-list
+					thead
+						tr
+							th Yo ID
+							th 真实姓名
+							th 任务数
+							th 有效建议数
+					tbody
 
 
 
 		script(src='../js/jquery-1.11.0.min.js')
 		script(src='../js/bootstrap.min.js')
-		script(src='../js/flipclock.min.js')
+		script(src='../js/flipclock.js')
 		script(src='../js/campaign.js')

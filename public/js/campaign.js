@@ -14,7 +14,7 @@ $(document).ready(function(){
 	clock = $('.counter').FlipClock(diff, {
 		clockFace: 'DailyCounter',
 		countdown: true,
-		showSeconds: true
+		showSeconds: false
 	});
 
   $('#getInvolved').submit(function(e){
@@ -41,7 +41,6 @@ $(document).ready(function(){
 			console.log("success");
 			if(data.errno===0){//login success
 				rewardData.token = data.result;
-        getRankingList(tbody, rewardData.token);
 
 			  $.ajax({//coupon
           url: host + '/SetReward.action',
@@ -55,16 +54,20 @@ $(document).ready(function(){
             btn.text('提交成功');
             btn.attr('disabled','disabled');
             msg.addClass('hidden');
+            $('.step1').addClass('hidden');
+            $('.step2').removeClass('hidden');
             break;
           case -1:
             msg.removeClass('hidden');
             msg.children('strong').text('无此用户');
-            btn.text('重新提交');
+            btn.attr('disabled','disabled');
+            btn.text('提交失败，请刷新重新提交');
             break;
           case -2:
             msg.removeClass('hidden');
             msg.children('strong').text('已经报名过');
-            btn.text('重新提交');
+            btn.attr('disabled','disabled');
+            btn.text('提交失败，请刷新重新提交');
             break;
           default:
           }
@@ -73,20 +76,25 @@ $(document).ready(function(){
           console.log("set reward error");
           msg.removeClass('hidden');
           msg.children('strong').text('提交失败');
-          btn.text('重新提交');
+          btn.attr('disabled','disabled');
+          btn.text('提交失败，请刷新重新提交');
         });
+        getRankingList(tbody, rewardData.token);
+
 			}
       else{//login fail
         msg.removeClass('hidden');
         msg.children('strong').text('登录失败');
-        btn.text('重新提交');
+        btn.attr('disabled','disabled');
+        btn.text('提交失败，请刷新重新提交');
       }
 		})
 		.fail(function() {
 			console.log("auth error");
 			msg.removeClass('hidden');
       msg.children('strong').text('登录失败');
-      btn.text('重新提交');
+      btn.attr('disabled','disabled');
+      btn.text('提交失败，请刷新重新提交');
 		});
   });
 });
@@ -104,6 +112,7 @@ var getRankingList = function(tbody, token){
     console.log(data);
     if(data.errno ===0 && data.result!=null){
       var row;
+      tbody.html('');
       for(var i=0; i<data.result.length; i++){
         // console.log();
         row = '';

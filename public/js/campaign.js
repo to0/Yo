@@ -28,7 +28,7 @@ $(document).ready(function(){
   var currentDate = new Date();
 	
 				// Set some date in the future. In this case, it's always Jan 1
-	var futureDate  = new Date(2014, 7, 30);
+	var futureDate  = new Date(2014, 8, 04);
 
 	// Calculate the difference in seconds between the future and current date
 	var diff = futureDate.getTime() / 1000 - currentDate.getTime() / 1000;
@@ -152,7 +152,8 @@ var getRankingList = function(tbody){
 			
 			row = '';
 			row += '<tr><td>' + data.result[i].username + '</td>';
-			row += '<td>' + data.result[i].realname_show.substring(0,6) + '</td>';
+			//row += '<td>' + data.result[i].realname_show.substring(0,6) + '</td>';
+      row += '<td>' + data.result[i].realname + '</td>';
 			row += '<td>' + data.result[i].numOfMission + '</td>';
 			row += '<td>' + data.result[i].numOfSuggestion + '</td></tr>';
 

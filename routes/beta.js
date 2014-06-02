@@ -6,7 +6,7 @@ var path = require('path');
 router.get('/ios',function(req, res) {
   res.render('ios-beta');
 })
-router.get('/android', function(req, res) {
+router.get('/android/down.myapp.com', function(req, res) {
   res.download(path.resolve(__dirname,'../app-beta/yohelper.apk'));
 });
 router.get('/yo.plist', function(req, res) {

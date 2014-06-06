@@ -7,21 +7,21 @@ body {
   background-attachment:fixed;*/
   /*这个是没有的*/
    background-color:#333;
-   
-   
+
+
   font-family:'Helvetica Neue', Helvetica, Arial, Verdana, sans-serif;
   -webkit-font-smoothing: antialiased;
   text-align: center;
- 
+
 
   font-weight :900;
-  
+
 }
 
 .campaign {
   max-width: 640px;
   color: #fff;
-  
+
   /*position: absolute;*/
   /*right: 50px;
   top: 150px;*/
@@ -42,7 +42,7 @@ body {
   width:19px;
 }
 .table tbody{
-	background-color:rgba(61, 51, 30, 0.54);;
+	background-color:inherit;
 }
 #submit {
   margin-top:30px;
@@ -54,7 +54,7 @@ body {
   color: #529ede;
 }
 .counter{
-   
+
 	padding-top:5px;
 	background-color:rgba(240,242,244,0.55);
 	height:120px;
@@ -68,4 +68,9 @@ color:#ffffff;
 }
 .checkmore img{
 	width:40px;
+}
+.step1 {
+  background-image:url("/img/i6.png");
+  background-repeat:no-repeat;
+  background-position:100% 80%;
 }

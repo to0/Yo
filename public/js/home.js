@@ -35,7 +35,9 @@ $(document).ready(function($){
 	});
 	$('#android').click(function(){
   	ga('send', 'event', 'button', 'click', 'Android Download ');
-
+	});
+	$('#ios').click(function(){
+  	ga('send', 'event', 'button', 'click', 'ios Click ');
 	});
 
 

@@ -7,7 +7,7 @@ var http = require('http');
 var https = require('https');
 
 var options = {
-  key: fs.readFileSync(path.resolve(__dirname,'../server.key')),
+  key: fs.readFileSync(path.resolve(__dirname,'../ssl.key')),
   cert: fs.readFileSync(path.resolve(__dirname,'../ssl-bundle.crt'))
 };
 app.set('port', process.env.PORT || 3000);
